@@ -1,8 +1,12 @@
 add_executable(
   door-tests
 
-  door-tests.cpp
+  door-init-tests.cpp
+  door-closed-open-tests.cpp
+  door-open-closed-tests.cpp
+
   timespec-tests.cpp
+  eventloop-tests.cpp
   
   event-edge-detector-tests.cpp
 
@@ -10,7 +14,6 @@ add_executable(
   outputs-tests.cpp
 
   adc-mock-tests.cpp
-  pressure-mock-tests.cpp
 )
 target_link_libraries(
   door-tests

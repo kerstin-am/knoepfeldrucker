@@ -43,7 +43,7 @@ int main(int argc, char** argv)
     if (argc > 2)
     {
         std::cout << "Error: Too many arguments!" << std::endl;
-        std::cout << "Usage: ./run-door [--test]" << std::endl;
+        std::cout << "Usage: ./run-door [--test/--real]" << std::endl;
         
         return 1;
     }
@@ -63,7 +63,7 @@ int main(int argc, char** argv)
         else
         {
             std::cout << "Error: Invalide argument!" << std::endl;
-            std::cout << "Usage: ./run-door [--test]" << std::endl;
+            std::cout << "Usage: ./run-door [--test/--real]" << std::endl;
 
             return 1;
         }
@@ -71,7 +71,7 @@ int main(int argc, char** argv)
     else 
     {
         std::cout << "Error: Missing argument!" << std::endl;
-        std::cout << "Usage: ./run-door [--test]" << std::endl;
+        std::cout << "Usage: ./run-door [--test/--real]" << std::endl;
         return 1;
     }
 
