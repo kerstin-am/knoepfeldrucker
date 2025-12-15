@@ -47,6 +47,9 @@ set(DOOR_FILES
   motorLED.h 
   motorLED.cpp
 
+  polling-timer.h
+  polling-timer.cpp
+
 )
 
 add_subdirectory(utilities)

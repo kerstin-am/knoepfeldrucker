@@ -20,8 +20,12 @@
 #include <iostream>
 #include <signal.h>
 
-#include <door/eventloop.h>
-#include <door/timer-handler.h>
+#include <door/utilities/eventloop.h>
+#include <door/utilities/periodic-timer.h>
+#include <door/utilities/timer-expired.h>
+#include <door/polling-timer.h>
+
+#include <door/utilities/timespec.h>
 
 // quit flag with atomic type
 static volatile sig_atomic_t quit = 0;
@@ -154,11 +158,16 @@ int main(int argc, char** argv)
     // set outputs
     outputs.set_outputs(out);
 
+    //1ms time
+    TimeSpec set_time(0, 1000000);
+
     //Eventloop
     Eventloop loop;
-    TimerHandler timer(&inputs, &outputs, &door);
+    PollingTimer polling_timer(inputs, outputs, door);
 
-    timer.hookup(loop);
+    PeriodicTimer timer_handler(set_time, &polling_timer);
+
+    timer_handler.hookup(loop);
     loop.run();
 
 

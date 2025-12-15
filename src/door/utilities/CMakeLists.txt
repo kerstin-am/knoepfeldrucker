@@ -5,8 +5,9 @@ add_library(
     timespec.cpp
     eventloop.h
     eventloop.cpp
-    timer-handler.cpp
-    timer-handler.h
+    periodic-timer.cpp
+    periodic-timer.h
+    timer-expired.h
 )
 
 target_include_directories(
